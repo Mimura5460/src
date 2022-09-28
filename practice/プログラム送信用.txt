@@ -1,0 +1,65 @@
+while(1):
+    class Student:
+        def __init__(self,number,name,old,gender,height,weight):
+            self.number=number
+            self.name=name
+            self.old=old
+            self.gender=gender
+            self.height=height
+            self.weight=weight
+            
+        def getNumber(self):
+            return self.number
+        
+        def getName(self):
+            return self.name
+        
+        def getOld(self):
+            return self.old
+        
+        def getGender(self):
+            return self.gender
+        
+        def getHeight(self):
+            return self.Height
+        
+        def getWeight(self):
+            return self.weight
+        
+    student_data={}
+    
+    k=0
+    with open("student_data.txt",mode="r",encoding="utf-8")as f:
+        for sen in f:
+            k+=1
+            student_data[k]=sen.split()
+            
+    n=int(input("番号を入力："))
+    pr=Student(student_data[n])
+    
+    while 1: 
+        k=int(input("欲しいデータの番号を入力：\n番号１、名前２、年齢３、性別４、身長５、体重６："))
+        if k>6 or k<1:
+            print("正しい数値を入力してください")
+        else:
+            break
+            
+    if k==1:
+        print(f"{n}番です")
+    elif k==2:
+        x=pr.getName()
+        print(f"{n}番は{x}です")
+    elif k==3:
+        x=pr.getOld()
+        print(f"{n}番は{x}歳です")
+    elif k==4:
+        x=pr.getGender()
+        print(f"{n}番は{x}性です")
+    elif k==5:
+        x=pr.getHeight()
+        print(f"{n}番は{x}cmです")
+    elif k==6:
+        x=pr.getWeight()
+        print(f"{n}番は{x}kgです")
+    else:
+        print("エラー")
